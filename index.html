@@ -12,11 +12,12 @@
     <script type="module">
         
         import {apiList} from "./js/modulo-api.js";
+        import {CONTENT_TYPE} from "./js/config.js";
 
         console.log("inizio...");
          /*film();
          serie();*/
-         apiList("terminator","series");
+         apiList("terminator",CONTENT_TYPE.SERIES);
          
          console.log("fine...");
 
