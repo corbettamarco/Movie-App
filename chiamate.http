@@ -1,0 +1,16 @@
+GET http://www.omdbapi.com/?i=tt3896198&apikey=4bc01fe7&t=terminator HTTP/1.1
+
+###
+
+GET http://www.omdbapi.com/?apikey=4bc01fe7&s=futurama&type=game
+
+###
+
+GET http://www.omdbapi.com/?apikey=4bc01fe7&s=futurama&type=series
+
+###
+
+GET http://www.omdbapi.com/?apikey=4bc01fe7&s=futurama&type=series&y=1999
+
+###
+

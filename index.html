@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   
+    
+</head>
+<body>
+    <script type="module">
+        import {film} from "./js/modulo-api.js";
+
+        console.log="inizio...";
+         film();
+         console.log="fine...";
+
+
+        //Uso l'oggetto window per rendere la variabile URL disponibile fuori dal tag script//
+        window.film=film();
+        
+
+    </script>
+    
+</body>
+</html>
