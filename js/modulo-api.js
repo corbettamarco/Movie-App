@@ -30,7 +30,27 @@ export const apiList =(s,type) =>{
         .then((response)=>response.json())
         .then((results)=>{
             const items=results.Search;
-            console.table(items);
+           /*console.table(items);*/
+           viewItems(items);
         });
        
 };
+
+const viewItems=(items) => {
+            
+            //1. Ciclare array
+            //2. Estrapolare gli item
+            //3. Estrapolare solo le proprietà richieste (Title,Year,Poster,Type)
+
+
+    items.map(
+        (item)=>{
+         console.group(item.Title); /*raggruppa per titolo tutti gli item*/
+         console.log(item.Year);
+         console.log(item.Poster);
+         console.log(item.Type);
+         console.groupEnd();
+        }
+    );
+ 
+}
