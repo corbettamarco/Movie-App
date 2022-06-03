@@ -1,3 +1,17 @@
+.navbar-brand{
+  font-size: 2.5rem ; 
+  font-family: monospace; 
+  color: aqua; 
+}
+
+
+@media screen and (max-width: 300px) {
+  .navbar-brand {
+    font-size: 2rem;
+  }
+}
+
+
 body {
   /* The image used */
   background: black;
@@ -5,16 +19,12 @@ body {
   /* Full height */
   height: 100%;
 
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
 }
 
 .navbar{
   border-bottom: 50px;
 }
+
 
 
 .MultiCarousel {
@@ -27,6 +37,50 @@ body {
   
 }
 
+.card-text{
+  text-overflow: ellipsis; 
+  overflow: hidden; 
+  font-weight: 600; 
+  font-size: medium;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color : rgba(0, 0, 0, 0.5);
+  margin: 0;
+  padding :10px;
+  text-align: center;
+  min-height: 50px;
+  
+}
+
+
+
+
+
+.item:hover {
+
+  transform: scale(0.9);
+  border: 1px solid #d0d0d0;
+  cursor: pointer;
+}
+
+
+.card{
+  
+  width:250px;
+  
+  margin: 20px;
+  height:300px;
+  min-height:300px;
+  background-color: transparent;
+  background-repeat:no-repeat;
+  background-position: center;
+  
+}
+
+.pad15{
+
+  height:300px ;
+}
+
 .MultiCarousel .MultiCarousel-inner {
   transition: 1s ease all;
   float: left;
@@ -37,7 +91,14 @@ body {
 .MultiCarousel .MultiCarousel-inner .item {
   float: left;
   align-content: center;
-  
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 250px;
+  padding: 20px;
+  height:500px;
+  max-height: 700px;
+  opacity: 0.9;
+
 }
 
 
@@ -45,11 +106,6 @@ body {
   text-align: center;
   padding-top: 30px;
 
-  background: ;
-  color: #666;
-  
-  
-  
 }
 
 .MultiCarousel .leftLst,
@@ -71,14 +127,15 @@ body {
 .MultiCarousel .leftLst.over,
 .MultiCarousel .rightLst.over {
   pointer-events: none;
-  background: #ccc;
   opacity: 0.8;
 }
 
 /*H1*/
 h1 {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: left;
+  padding-left: 20px;
+
 }
 
 footer {
@@ -95,9 +152,19 @@ footer {
 }
 
 button:hover{
-  border-color: black;
-  border-width: 2px ;
+  transform: scale(0.9);
+  border: 1px solid #d0d0d0;
+  cursor: pointer;
 }
+
+.btn:hover{
+  transform: scale(1.05);
+  border: 1px solid #d0d0d0;
+  cursor: pointer;
+
+}
+
+
 /*links*/
 a {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -117,44 +184,19 @@ a:hover {
 
 }
 
-/*item degli slider*/
-.item:hover{
-  -webkit-animation: scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;    
-        }
-/**
- * ----------------------------------------
- * animation scale-up-center
- * ----------------------------------------
- */
-
-@keyframes scale-up-center {
-  
-
-100% {
-  -webkit-transform: scale(1.15);
-          transform: scale(1.15);
-         
-         
-}
-
-0% {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-      
-}
-
-}
 
 .swiper {
   width: 100%;
   height: 80vh;
+  max-height: 600px;
 }
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: rgb(0, 0, 0);
+  text-overflow: "-";
+
 
   /* Center slide text vertically */
   display: -webkit-box;
@@ -172,11 +214,14 @@ a:hover {
   padding-bottom:0 ;
 }
 
-.swiper-slide video {
+.swiper-slide img {
   display: block;
-  width: 100%;
+  overflow: hidden;
   height: 100%;
-  object-fit: fill;
+  min-width: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+ 
 }
 
 
@@ -196,18 +241,19 @@ a:hover {
 #overlay {
   position: absolute; 
   bottom: 50px; 
-  left: 20px;
+  left: 40px;
   color: rgb(218, 218, 218); 
   text-align: left;
   font-size: 20px;
-  background: rgb(72,58,180);
-  background: linear-gradient(90deg, rgba(0,0,0,0.741248097412481) 0%, rgba(169, 172, 173, 0.733) 80%);  height: 33%;
+  text-overflow: ellipsis;
   width: 50%;
   padding: 10px 0;
   z-index: 2147483647;
   border-radius: 20px;
  display: inline-block;
  height: max-content;
+ min-height: 80%;
+ overflow: hidden;
   
 }
 #testo{
@@ -223,39 +269,40 @@ a:hover {
   position: absolute;
   bottom: 10px;
   width: 90%;
+  left: 10px;
+  align-self: center;
  
 }
 
 
 
-.slide-right:hover {
-	-webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+.scale-up-center:hover {
+	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
-
 
 /**
  * ----------------------------------------
- * animation slide-right
+ * animation scale-up-center
  * ----------------------------------------
  */
- @-webkit-keyframes slide-right {
+@-webkit-keyframes scale-up-center {
   0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
   }
   100% {
-    -webkit-transform: translateX(10%);
-            transform: translateX(10%);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
-@keyframes slide-right {
+@keyframes scale-up-center {
   0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   100% {
-    -webkit-transform: translateX(10%);
-            transform: translateX(10%);
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
 }

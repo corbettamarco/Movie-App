@@ -14,3 +14,4 @@ GET http://www.omdbapi.com/?apikey=4bc01fe7&s=futurama&type=series&y=1999
 
 ###
 
+GET http://www.omdbapi.com/?apikey=4bc01fe7&type=series&y=2022&page=1

@@ -1,7 +1,6 @@
 
- 
 
-$(document).ready(function () {
+$( window ).on( "load", function () {
   var itemsMainDiv = ('.MultiCarousel');
   var itemsDiv = ('.MultiCarousel-inner');
   var itemWidth = "";
@@ -17,12 +16,14 @@ $(document).ready(function () {
   ResCarouselSize();
 
 
+  
 
 
   $(window).resize(function () {
       ResCarouselSize();
   });
 
+  
   //this function define the size of the items
   function ResCarouselSize() {
       var incno = 0;
@@ -65,10 +66,10 @@ $(document).ready(function () {
           $(".leftLst").addClass("over");
           $(".rightLst").removeClass("over");
 
-      });
-  }
-
-
+      })
+  };
+  
+ 
   //this function used to move the items
   function ResCarousel(e, el, s) {
       var leftBtn = ('.leftLst');
@@ -108,9 +109,32 @@ $(document).ready(function () {
 
 });
 
+
 var overlay= document.getElementById('overlay');
-var video= document.getElementById('v');
+var video= document.getElementById('testo');
+
 video.addEventListener('progress', function() {
   var show= video.currentTime>=5 && video.currentTime<10;
   overlay.style.visibility= show? 'visible' : 'visible';
 }, false);
+
+
+
+
+
+/*Initialize Swiper */
+
+    var swiper = new Swiper(".mySwiper", {
+        observer:true,
+     observerParents:true,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+     },
+    
+});
+
