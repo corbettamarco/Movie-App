@@ -86,6 +86,8 @@ import {CONTENT_TYPE} from "../js/config.js";
 
 
 
+
+
 export const apiList = (s, type) => {
     const url = BASE_URL + "s=" + s + "&type=" + type + "&page=1" + "&p";
     fetch(url)
@@ -176,7 +178,7 @@ export const apiList = (s, type) => {
   
     return slide;
   };
-
+  
   
  document.addEventListener('DOMContentLoaded',apiList("terminator", CONTENT_TYPE.MOVIE));
  document.addEventListener('DOMContentLoaded',apiList("star wars", CONTENT_TYPE.SERIES));

@@ -1,6 +1,8 @@
 
 
-$( window ).on( "load", function () {
+
+
+window.addEventListener('DOMContentLoaded', function () {
   var itemsMainDiv = ('.MultiCarousel');
   var itemsDiv = ('.MultiCarousel-inner');
   var itemWidth = "";
@@ -13,16 +15,16 @@ $( window ).on( "load", function () {
           click(1, this)
   });
 
-  ResCarouselSize();
 
 
-  
 
 
-  $(window).resize(function () {
+  $(window).scroll(function () {
       ResCarouselSize();
   });
-
+  
+  
+ 
   
   //this function define the size of the items
   function ResCarouselSize() {
@@ -108,6 +110,7 @@ $( window ).on( "load", function () {
   }
 
 });
+
 
 
 var overlay= document.getElementById('overlay');
