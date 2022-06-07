@@ -95,9 +95,9 @@ body {
   align-content: center;
   background-repeat: no-repeat;
   background-position: center;
-  width: 250px;
-  padding: 20px;
-  height:500px;
+  width: 300px;
+  background-size: cover;
+  height:445px;
   max-height: 700px;
   opacity: 0.9;
 
