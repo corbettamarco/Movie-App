@@ -395,6 +395,130 @@ export const apiList = async (s, type) => {
   };
 
 
+  /*RICERCA*//////////////////////////////////
+
+
+
+  export const ricerca =  (s2, type2) => {
+
+    document.getElementById("M11").innerHTML = "";
+    document.getElementById("M22").innerHTML = "";
+    /*document.getElementById("secondoslider").style.display ="none";
+    document.getElementById("primoslider").style.display ="none";*/
+
+    if(s2 ==""){
+      
+     
+      console.log(document.getElementById("barraricerca").value);
+      apiList("terminator", CONTENT_TYPE.MOVIE);
+      apiList("star wars", CONTENT_TYPE.SERIES);
+   
+      document.getElementById("primoslider").style.display ="inline-block";
+      document.getElementById("film").style.display ="inline-block";
+      document.getElementById("secondoslider").style.display ="inline-block";
+      document.getElementById("series").style.display ="inline-block";
+
+    }
+    else{
+      const url2 = BASE_URL + "s=" + s2 + "&type=" + type2 + "&page=1" ;
+    
+
+    fetch(url2)
+    .then((response2)=>response2.json())
+    .then((results2)=>{
+      const items2=results2.Search;
+
+        /*nascondo le serie o i film in base al risultato richiesto*/
+        
+      
+      if(type2=="movie"){
+
+
+        document.getElementById("M22").innerHTML = "";
+        document.getElementById("series").style.display = "none";
+        document.getElementById("film").style.display = "inline-block";
+       /* document.getElementById("fila2").style.display = "none";
+        document.getElementById("fila1").style.display = "inline-block";*/
+        
+        document.getElementById("lft1").style.display = "inline-block";
+        document.getElementById("rgt1").style.display = "inline-block";
+
+        document.getElementById("lft2").style.display = "none";
+        document.getElementById("rgt2").style.display = "none";
+
+        
+        /*document.getElementById("secondoslider").style.display ="none";*/
+        
+      
+        viewItems(items2);  
+
+        document.getElementById('anchor1').scrollIntoView();
+             
+      }
+      
+     else{
+        document.getElementById("M11").innerHTML = "";
+        document.getElementById("film").style.display = "none";
+        document.getElementById("series").style.display = "inline-block";
+        /*document.getElementById("fila2").style.display = "inline-block";
+        document.getElementById("fila1").style.display = "none";*/
+
+        document.getElementById("lft1").style.display = "none";
+        document.getElementById("rgt1").style.display = "none";
+
+        document.getElementById("lft2").style.display = "inline-block";
+        document.getElementById("rgt2").style.display = "inline-block";
+        /*document.getElementById("primoslider").style.display ="none";*/
+       
+        
+        viewItems(items2);
+      
+        document.getElementById('anchor2').scrollIntoView();
+    
+      }
+    
+      
+
+        
+      });
+
+      
+
+    }
+
+
+    };
+
+    
+
+
+    document.getElementById("submit1").addEventListener('click', function() {
+    if(dropdownMenuButton1){
+    var select = document.getElementById('dropdownMenuButton1');
+    var value=select.options[select.selectedIndex].value;
+    
+    ricerca(document.getElementById("barraricerca").value, value);
+
+    
+    
+    }
+    if(dropdownMenuButton2){
+    var select = document.getElementById('dropdownMenuButton2');
+    var value=select.options[select.selectedIndex].value;
+    
+    ricerca(document.getElementById("barraricerca").value, value);
+
+    
+    }
+
+
+    
+  });
+
+  
+
+
+
  
   /*popup*/
 
@@ -413,9 +537,26 @@ export const popUp=()=> {
 
 
 
- document.addEventListener('DOMContentLoaded',apiList("terminator", CONTENT_TYPE.MOVIE));
+ /*document.addEventListener('DOMContentLoaded',apiList("terminator", CONTENT_TYPE.MOVIE));
  document.addEventListener('DOMContentLoaded',apiList("star wars", CONTENT_TYPE.SERIES));
 
+*/
+if (document.getElementById("barraricerca").value == "") {
+document.addEventListener('DOMContentLoaded',function () {
+  
+      
+  console.log(document.getElementById("barraricerca").value);
+   apiList("terminator", CONTENT_TYPE.MOVIE);
+   apiList("star wars", CONTENT_TYPE.SERIES);
+
+   document.getElementById("primoslider").style.display ="inline-block";
+   document.getElementById("film").style.display ="inline-block";
+   document.getElementById("secondoslider").style.display ="inline-block";
+   document.getElementById("series").style.display ="inline-block";
+   
+  
+})
+};
 
  document.addEventListener('DOMContentLoaded', function() {
  
