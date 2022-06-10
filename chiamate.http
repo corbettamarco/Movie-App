@@ -1,4 +1,4 @@
-GET http://www.omdbapi.com/?i=tt3896198&apikey=4bc01fe7&t=terminator HTTP/1.1
+GET http://www.omdbapi.com/?i=tt3896198&apikey=4bc01fe7&s=terminator HTTP/1.1
 
 ###
 
@@ -14,4 +14,7 @@ GET https://www.omdbapi.com/?apikey=4bc01fe7&s=futurama&type=series&y=1999
 
 ###
 
-GET http://www.omdbapi.com/?apikey=4bc01fe7&type=series&y=2022&page=1
+GET http://www.omdbapi.com/?apikey=4bc01fe7&i=tt0103064&plot=short
+
+
+GET https://www.omdbapi.com/?i=tt3896198&apikey=4bc01fe7&i=tt0458290&plot=short

@@ -27,7 +27,31 @@ body {
   border-bottom: 50px;
 }
 
+@media screen and (min-width: 500px) { /*barra ricerca*/
+#ricerca{
 
+  width: 500px;
+}
+}
+
+#dropdownMenuButton1 {
+  margin-right: 10px;
+}
+
+#dropdownMenuButton2{
+  margin-right: 10px;
+  border: 1px solid #d0d0d0;
+}
+
+@media screen and (min-width: 500px) {
+  button#dropdownMenuButton1 {display:inline-block}
+  button#dropdownMenuButton2 {display:none}
+}
+
+@media screen and (max-width: 500px) {
+  button#dropdownMenuButton1 {display:none}
+  button#dropdownMenuButton2 {display:inline-block}
+}
 
 .MultiCarousel {
   float: left;
@@ -52,9 +76,6 @@ body {
   min-height: 50px;
   
 }
-
-
-
 
 
 .item:hover {
@@ -115,6 +136,7 @@ body {
   position: absolute;
   border-radius: 50%;
   top: calc(50% - 20px);
+  
 }
 
 .MultiCarousel .leftLst {
@@ -128,7 +150,7 @@ body {
 
 .MultiCarousel .leftLst.over,
 .MultiCarousel .rightLst.over {
-  pointer-events: none;
+  
   opacity: 0.8;
 }
 
@@ -238,7 +260,7 @@ a:hover {
   left: 0;
 }
 
-#overlay {
+#overlay2 {
   position: absolute; 
   bottom: 50px; 
   left: 40px;
@@ -254,11 +276,10 @@ a:hover {
  height: max-content;
  min-height: 80%;
  overflow: hidden;
-  
 }
 
 @media screen and (max-width: 400px) {
-  #overlay {
+  #overlay2 {
     font-size: 1rem;
     width: 200px;
     padding-left: 5px;
@@ -271,6 +292,7 @@ a:hover {
 #testo{
   padding: 10px;
 }
+
 
 #v {
   z-index: 1;
@@ -341,5 +363,95 @@ a:hover {
     font-size: 1.5rem;
 }
  
+/*popup*/
+
+/* Popup container */
+#overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: #999;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  z-index: 100;
+  border: white;
+  border-width: 1px;
+}
 
 
+@media screen and (max-width: 400px) {
+  #popup{
+    font-size: 1rem;
+    width: 100px;
+    padding-left: 5px;
+    
+  }
+ 
+}
+
+
+
+
+#popup {
+  display: none;
+  position: fixed;
+  top: 15vh;
+  left: 50%;
+  bottom: 20vh;
+  opacity: 80%;
+  background: rgb(0, 0, 0);
+  width: clamp(80vw,80vw,80vw);
+  margin-left:clamp(-40vw,-40vw,-40vw) ; /*Half the value of width to center div*/
+  margin-top:clamp(-25px,-40vw,-40vw) ; /*Half the value of height to center div*/
+  z-index: 200;
+  max-width: 80vw;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#popupclose {
+  float: right;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 200;
+}
+.fa-solid:hover {
+  cursor: pointer;
+  width: 50px;
+}
+
+.popupcontent {
+  padding: 10px;
+}
+
+
+
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 0.8;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:0.8 ;}
+}
+
+
+
+#modalOverlay {
+  position: fixed;
+  display:none;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0,0,0,0.3); /* black semi-transparent */
+  z-index: 199;
+}

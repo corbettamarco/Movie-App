@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 
+    
 
 
 <head>
@@ -8,8 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Movie App</title>
     <script type="module">
-        import {apiList} from "./js/modulo-api.js";  
+        import {apiList} from "./js/modulo-api.js"; 
     </script>
+   
     
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -19,8 +21,7 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
       <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-        
-     
+            
 </head>
 
 
@@ -29,6 +30,7 @@
 
 
 <body class="p-3 mb-2 bg-black text-white"  >
+    <div id="modalOverlay"></div>
 
     <nav class="navbar navbar-expand-lg navbar-dark " style="border-radius: 20px ; ">
         <div class="container-fluid">
@@ -53,24 +55,39 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#series">Serie TV</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!--<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            Generi
+                            Filtro Ricerca
                         </a>
                         <div class="dropdown-menu  text-outline-light" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Azione</a>
-                            <a class="dropdown-item" href="#">Drammatico</a>
-                            <a class="dropdown-item" href="#">Romantico</a>
+                            <a class="dropdown-item" >Film</a>
+                            <a class="dropdown-item">Serie TV</a>
+                            
                         </div>
-                    </li>
+                    </li>-->
 
 
                 </ul>
-                <form class="d-flex col-lg-4" role="search">
-                    <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex col-lg-4" role="search" id="ricerca">
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                          Filtra
+                        </button>
+                        <button class="btn btn-secondary dropdown-toggle justify-content-center" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                            
+                          </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Film</a>
+                          <a class="dropdown-item" href="#">Serie TV</a>
+                        </div>
+                      </div>
+
+                    <input class="form-control me-2 " type="search" placeholder="Titolo, Attori..." aria-label="Search" style="text-overflow: ellipsis;">
                     <button class="btn btn-outline-light " type="submit">Cerca</button>
                 </form>
+                
             </div>
         </div>
     </nav>
@@ -79,9 +96,9 @@
         
     <div class="swiper mySwiper" >
         <div class="swiper-wrapper"  id="slides">
-          <div class="swiper-slide"><img src="./assets/game-of-thrones.jpg" ><div id="overlay"><p id="testo"><h3>Game of Thrones</h3><br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br> <a href="#" id="watch" class="btn btn-info btn-lg active " role="button" aria-pressed="true">Guarda</a> </p></div></div>
-          <div class="swiper-slide"><img src="./assets/twd.jpg" ></img><div id="overlay"><p id="testo"><h3>The Walking Dead</h3><br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br> <a href="#" id="watch" class="btn btn-info btn-lg active " role="button" aria-pressed="true">Guarda</a> </p></div></div>
-          <div class="swiper-slide"><img src="./assets/owk.jpg" ></img><div id="overlay"><p id="testo"><h3>Star Wars Obi Wan Kenobi</h3><br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br> <a href="#" id="watch" class="btn btn-info btn-lg active " role="button" aria-pressed="true">Guarda</a> </p></div></div>
+          <div class="swiper-slide"><img src="./assets/game-of-thrones.jpg" ><div id="overlay2"><p id="testo"><h3>Game of Thrones</h3><br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br> <a href="#" id="watch" class="btn btn-info btn-lg active " role="button" aria-pressed="true">Guarda</a> </p></div></div>
+          <div class="swiper-slide"><img src="./assets/twd.jpg" ></img><div id="overlay2"><p id="testo"><h3>The Walking Dead</h3><br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br> <a href="#" id="watch" class="btn btn-info btn-lg active " role="button" aria-pressed="true">Guarda</a> </p></div></div>
+          <div class="swiper-slide"><img src="./assets/owk.jpg" ></img><div id="overlay2"><p id="testo"><h3>Star Wars Obi Wan Kenobi</h3><br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br> <a href="#" id="watch" class="btn btn-info btn-lg active " role="button" aria-pressed="true">Guarda</a> </p></div></div>
         </div>
         <div class="swiper-pagination"></div>
 
@@ -118,6 +135,9 @@
                     <button class="btn btn-info leftLst"><i class="fas fa-arrow-left"></i></button>
                     <button class="btn btn-info rightLst"><i class="fas fa-arrow-right"></i></button>
                 </div>
+
+
+                
             </div>
 
             <div class="row">
@@ -155,15 +175,24 @@
         </div>
 
 
+ 
 
             <br>
             <br />
             <hr />
 
+            <!--PopUp-->
 
-            <!--FOOTER-->
-  
-
+            <!--<div id="overlay"></div>
+            <div id="popup">
+                <div class="popupcontrols">
+                    <span id="popupclose"><i class="fa-solid fa-x" style="height: 10px;padding: 10px;"></i></span>
+                </div>
+                <div class="popupcontent">
+                    <h1>Some Popup Content</h1>
+                </div>
+            </div>-->
+           
 
 
 
@@ -195,6 +224,7 @@
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
             
             <script src="./js/styles.js"></script>
+           
 
         <footer class="bg-light text-center text-lg-start">
 
