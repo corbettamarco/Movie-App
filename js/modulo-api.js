@@ -397,8 +397,12 @@ export const apiList = async (s, type) => {
 
   export const ricerca =  (s2, type2) => {
 
-    document.getElementById("M11").innerHTML = "";
-    document.getElementById("M22").innerHTML = "";
+    while( document.getElementById("M11").hasChildNodes()){
+      document.getElementById("M11").removeChild( document.getElementById("M11").lastChild);
+    }
+    while( document.getElementById("M22").hasChildNodes()){
+      document.getElementById("M22").removeChild( document.getElementById("M22").lastChild);
+    }
     /*document.getElementById("secondoslider").style.display ="none";
     document.getElementById("primoslider").style.display ="none";*/
 
@@ -409,11 +413,15 @@ export const apiList = async (s, type) => {
       apiList("terminator", CONTENT_TYPE.MOVIE);
       apiList("star wars", CONTENT_TYPE.SERIES);
    
-      document.getElementById("primoslider").style.display ="inline-block";
+      document.getElementById("primoslider").style.display ="auto";
       document.getElementById("film").style.display ="inline-block";
-      document.getElementById("secondoslider").style.display ="inline-block";
+      document.getElementById("secondoslider").style.display ="auto";
       document.getElementById("series").style.display ="inline-block";
 
+      document.getElementById("lft1").style.display = "inline-block";
+      document.getElementById("rgt1").style.display = "inline-block";
+      document.getElementById("lft2").style.display = "inline-block";
+      document.getElementById("rgt2").style.display = "inline-block";
     }
     else{
       const url2 = BASE_URL + "s=" + s2 + "&type=" + type2 + "&page=1" ;
@@ -429,12 +437,15 @@ export const apiList = async (s, type) => {
       
       if(type2=="movie"){
 
-
-        document.getElementById("M22").innerHTML = "";
+        document.getElementById("hr2").style.visibility="hidden";
+        document.getElementById("hr1").style.visibility="visible";
+        while( document.getElementById("M22").hasChildNodes()){
+          document.getElementById("M22").removeChild( document.getElementById("M22").lastChild);
+        }
         document.getElementById("series").style.display = "none";
         document.getElementById("film").style.display = "inline-block";
        /* document.getElementById("fila2").style.display = "none";
-        document.getElementById("fila1").style.display = "inline-block";*/
+        document.getElementById("fila1").style.display = "auto";*/
         
         document.getElementById("lft1").style.display = "inline-block";
         document.getElementById("rgt1").style.display = "inline-block";
@@ -442,21 +453,26 @@ export const apiList = async (s, type) => {
         document.getElementById("lft2").style.display = "none";
         document.getElementById("rgt2").style.display = "none";
 
-        
+       
         /*document.getElementById("secondoslider").style.display ="none";*/
         
       
         viewItems(items2);  
 
         document.getElementById('anchor1').scrollIntoView();
+        return;
              
       }
       
-     else{
-        document.getElementById("M11").innerHTML = "";
+     if(type2=="series"){
+      document.getElementById("hr1").style.visibility="hidden";
+      document.getElementById("hr2").style.visibility="visible";
+      while( document.getElementById("M11").hasChildNodes()){
+        document.getElementById("M11").removeChild( document.getElementById("M11").lastChild);
+      }
         document.getElementById("film").style.display = "none";
         document.getElementById("series").style.display = "inline-block";
-        /*document.getElementById("fila2").style.display = "inline-block";
+        /*document.getElementById("fila2").style.display = "auto";
         document.getElementById("fila1").style.display = "none";*/
 
         document.getElementById("lft1").style.display = "none";
@@ -470,9 +486,9 @@ export const apiList = async (s, type) => {
         viewItems(items2);
       
         document.getElementById('anchor2').scrollIntoView();
-    
+     return;
       }
-    
+      
       
 
         
@@ -491,23 +507,23 @@ export const apiList = async (s, type) => {
 
 
     document.getElementById("submit1").addEventListener('click', function() {
-    if(dropdownMenuButton1){
+    
     var select = document.getElementById('dropdownMenuButton1');
     var value=select.options[select.selectedIndex].value;
     
     ricerca(document.getElementById("barraricerca").value, value);
-
     
     
-    }
-    if(dropdownMenuButton2){
-    var select = document.getElementById('dropdownMenuButton2');
-    var value=select.options[select.selectedIndex].value;
     
-    ricerca(document.getElementById("barraricerca").value, value);
-
     
-    }
+    /*if($(window).width()<=500){
+    var select2 = document.getElementById('dropdownMenuButton2');
+    var value2=select2.options[select.selectedIndex].value;
+    
+    ricerca(document.getElementById("barraricerca").value, value2);
+    
+    
+    }*/
 
 
     
@@ -531,11 +547,15 @@ document.addEventListener('DOMContentLoaded',function () {
    apiList("terminator", CONTENT_TYPE.MOVIE);
    apiList("star wars", CONTENT_TYPE.SERIES);
 
-   document.getElementById("primoslider").style.display ="inline-block";
+   document.getElementById("primoslider").style.display ="auto";
    document.getElementById("film").style.display ="inline-block";
-   document.getElementById("secondoslider").style.display ="inline-block";
+   document.getElementById("secondoslider").style.display ="auto";
    document.getElementById("series").style.display ="inline-block";
    
+   document.getElementById("lft1").style.display = "inline-block";
+   document.getElementById("rgt1").style.display = "inline-block";
+   document.getElementById("lft2").style.display = "inline-block";
+   document.getElementById("rgt2").style.display = "inline-block";
   
 })
 };

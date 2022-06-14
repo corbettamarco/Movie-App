@@ -51,17 +51,17 @@ body {
   text-align: center;
   padding: 5px;
 }
-
+/*
 @media screen and (min-width: 500px) {
-  #dropdownMenuButton1 {display:inline-block}
-  #dropdownMenuButton2 {display:none}
+  #dropdownMenuButton1 {display:inline-block !important;}
+  #dropdownMenuButton2 {display:none !important;}
 }
 
 @media screen and (max-width: 500px) {
-  #dropdownMenuButton1 {display:none}
-  #dropdownMenuButton2 {display:inline-block}
+  #dropdownMenuButton1 {display:none !important;}
+  #dropdownMenuButton2 {display:inline-block !important;} 
 }
-
+*/
 .MultiCarousel {
   float: left;
   overflow: hidden;
