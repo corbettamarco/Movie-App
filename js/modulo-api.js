@@ -374,10 +374,6 @@ export const apiList = async (s, type) => {
     
     document.body.appendChild(pop);
 
-  
-  /*var closePopup = document.getElementById("popupclose");*/
-  /*var overlay = document.getElementById("overlay");*/
- /* var popup = document.getElementById("popup");*/
    
   slide.onclick=function() {
     pop.style.display = 'block';
@@ -409,7 +405,7 @@ export const apiList = async (s, type) => {
     if(s2 ==""){
       
      
-      console.log(document.getElementById("barraricerca").value);
+      
       apiList("terminator", CONTENT_TYPE.MOVIE);
       apiList("star wars", CONTENT_TYPE.SERIES);
    
@@ -489,7 +485,9 @@ export const apiList = async (s, type) => {
 
     };
 
-    
+    //////////////////////////////////////
+
+    /*chiamata funzione ricerca*/
 
 
     document.getElementById("submit1").addEventListener('click', function() {
@@ -520,32 +518,16 @@ export const apiList = async (s, type) => {
 
 
  
-  /*popup*/
-
-  var closePopup = document.getElementById("popupclose");
-  var overl = document.getElementById("overlay");
-  var popup = document.getElementById("popup");
-
-// When the user clicks on <div>, open the popup
-export const popUp=()=> {
-  var popup = document.getElementById("popup");
-  popup.classList.toggle("show");
-  document.getElementById("modalOverlay").style.display = "block";
-
-}
 
 
 
+/*caricamento pagina con contenuti predefiniti in caso di barra di ricerca vuota*/
 
- /*document.addEventListener('DOMContentLoaded',apiList("terminator", CONTENT_TYPE.MOVIE));
- document.addEventListener('DOMContentLoaded',apiList("star wars", CONTENT_TYPE.SERIES));
-
-*/
 if (document.getElementById("barraricerca").value == "") {
 document.addEventListener('DOMContentLoaded',function () {
   
       
-  console.log(document.getElementById("barraricerca").value);
+  
    apiList("terminator", CONTENT_TYPE.MOVIE);
    apiList("star wars", CONTENT_TYPE.SERIES);
 
@@ -557,6 +539,8 @@ document.addEventListener('DOMContentLoaded',function () {
   
 })
 };
+
+/*funzione per cancellare il popup al caricamento della pagina*/
 
  document.addEventListener('DOMContentLoaded', function() {
  
@@ -571,3 +555,17 @@ document.addEventListener('DOMContentLoaded',function () {
   
   
 
+
+  /*popup*/
+
+  var closePopup = document.getElementById("popupclose");
+  var overl = document.getElementById("overlay");
+  var popup = document.getElementById("popup");
+
+
+export const popUp=()=> {
+  var popup = document.getElementById("popup");
+  popup.classList.toggle("show");
+  document.getElementById("modalOverlay").style.display = "block";
+
+}
